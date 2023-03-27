@@ -6,20 +6,8 @@
 <html>
 <title>#UDF#</title>
 <head>
-	<style>
-	body,p,td { font-family:"arial" 10px; }
-	##sources { width:100%; height:400px; background: ##CCC; padding:10px; overflow:scroll; }
-	</style>
-	<script>
-	function showHide( elementID ) {
-		var e = document.getElementById(elementID);
-		if (e.style.display === "none") {
-			e.style.display = "block";
-		} else {
-			e.style.display = "none";
-		}
-	}
-	</script>
+	<link href="/_assets/styles.css" rel="stylesheet">
+	<script src="/_assets/scripts.js"></script>
 </head>
 <body>
 
