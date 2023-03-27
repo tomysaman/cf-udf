@@ -1,6 +1,8 @@
 <cfoutput>
 
-<cfset UDF = "secondsToTimespan">
+<cfset folder = listLast( getDirectoryFromPath(getCurrentTemplatePath()), "/\" )>
+<cfset UDF = listLast(folder, "-")>
+
 <cfinclude template="#UDF#.cfm">
 
 <html>
@@ -13,17 +15,15 @@
 
 <h1>#UDF#</h1>
 
-
 <p><a href="javascript:showHide('sources')">View Source</a></p>
-
 <cffile action="read" file="#expandPath('./#UDF#.cfm')#" variable="udfContent">
-<div id="sources" style="display:none;"><pre>#udfContent#</pre></div>
+<div id="sources" style="display:none;"><pre>#trim(udfContent)#</pre></div>
 
 
 <p>
 	Convert seconds into a timespan, either as:
 	<ul>
-		<li>A struct with keys <strong>Day</strong>, <strong>Hour</strong>, <strong>Minute</strong>, and <strong>Second</strong></li>
+		<li>A struct with keys Day, Hour, Minute, and Second</li>
 		<li>A timespan created by CreateTimeSpan()</li>
 	</ul>
 </p>
@@ -44,6 +44,7 @@
 </pre>
 <cfset timespanValue = secondsToTimespan(94757, true)>
 <cfdump var="#timespanValue#">
+
 
 </body>
 </html>
