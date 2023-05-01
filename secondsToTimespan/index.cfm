@@ -1,24 +1,24 @@
 <cfoutput>
 
+<cfset thisUUID = createUUID()>
 <cfset folder = listLast( getDirectoryFromPath(getCurrentTemplatePath()), "/\" )>
 <cfset UDF = listLast(folder, "-")>
 
 <cfinclude template="#UDF#.cfm">
+<cffile action="read" file="#expandPath('./#UDF#.cfm')#" variable="udfContent">
 
 <html>
 <title>#UDF#</title>
 <head>
-	<link href="/_assets/styles.css" rel="stylesheet">
-	<script src="/_assets/scripts.js"></script>
+	<link href="/_assets/styles.css?v=#thisUUID#" rel="stylesheet">
+	<script src="/_assets/scripts.js?v=#thisUUID#"></script>
 </head>
 <body>
 
 <h1>#UDF#</h1>
 
 <p><a href="javascript:showHide('sources')">View Source</a></p>
-<cffile action="read" file="#expandPath('./#UDF#.cfm')#" variable="udfContent">
-<div id="sources" style="display:none;"><pre>#trim(udfContent)#</pre></div>
-
+<div id="sources"><pre>#trim(udfContent)#</pre></div>
 
 <p>
 	Convert seconds into a timespan, either as:
@@ -28,6 +28,21 @@
 	</ul>
 </p>
 
+<h2>Arguments</h2>
+
+<ul>
+	<li>
+		<strong>seconds</strong>: required numeric <br>
+	</li>
+	<li>
+		<strong>returnUsingCreateTimeSpan</strong>: boolean default=false <br>
+		If true, function will return a timespan using createTimeSpan() instead of returning a structure
+	</li>
+</ul>
+
+<h2>Return Values</h2>
+
+<p>Structure with keys Day, Hour, Minute, Second<br>Or a timespan value (as created by createTimeSpan() function)</p>
 
 <h2>Examples</h2>
 
@@ -44,7 +59,6 @@
 </pre>
 <cfset timespanValue = secondsToTimespan(94757, true)>
 <cfdump var="#timespanValue#">
-
 
 </body>
 </html>

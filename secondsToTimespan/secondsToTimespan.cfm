@@ -1,6 +1,6 @@
 <!--- Author: Tomy Saman | tomywutoto@gmail.com --->
 <cfscript>
-// secondsToTimespan(): Convert seconds into a structure of date/time part as Day, Hour, Minute, and Second - useful when you need to convert seconds for createTimeSpan(day, hour, minute, second) function
+// secondsToTimespan(): Convert seconds into a structure of date/time with keys as Day, Hour, Minute, and Second; or as a timespan created by createTimeSpan(day, hour, minute, second)
 public any function secondsToTimespan(required numeric seconds, boolean returnUsingCreateTimeSpan=false) {
 	var remainder = int(abs(arguments.seconds));
 	var d = int(remainder/86400);

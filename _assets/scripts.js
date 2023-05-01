@@ -1,6 +1,7 @@
 function showHide( elementID ) {
 	var e = document.getElementById(elementID);
-	if (e.style.display === "none") {
+	var dsp = window.getComputedStyle(e).display;
+	if (dsp === "none") {
 		e.style.display = "block";
 	} else {
 		e.style.display = "none";

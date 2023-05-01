@@ -1,4 +1,6 @@
 * { font-family:"verdana" }
 body,p,th,td { font-size:12px; }
 
-#sources { width:95%; height:400px; background:#CCC; padding:10px; overflow:scroll; font-size:12px; }
+#sources { width:95%; max-height:600px; background:#CCC; padding:0 10px; overflow:scroll; font-size:10px; display: none; }
+pre { font-family:monospace; background:#E5E2E0; padding:10px; font-size:12px;}
+pre * { font-family:monospace; }
