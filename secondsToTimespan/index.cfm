@@ -21,7 +21,7 @@
 <div id="sources"><pre>#trim(udfContent)#</pre></div>
 
 <p>
-	Convert seconds into a timespan, either as:
+	This UDF converts seconds into a timespan, either as:
 	<ul>
 		<li>A struct with keys Day, Hour, Minute, and Second</li>
 		<li>A timespan created by CreateTimeSpan()</li>
