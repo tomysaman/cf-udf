@@ -6,6 +6,8 @@
 
 <cfinclude template="#UDF#.cfm">
 <cffile action="read" file="#expandPath('./#UDF#.cfm')#" variable="udfContent">
+<cfset udfContent = replace(udfContent, "<", "&lt;", "all")>
+<cfset udfContent = replace(udfContent, ">", "&gt;", "all")>
 
 <html>
 <title>#UDF#</title>
@@ -72,11 +74,12 @@
 &lt;cfset data = {
 	a = 1,
 	b = 1.1,
-	c = "test",
-	d = true,
-	e = "Yes",
-	f = "1",
-	g = now(),
+	c = "1",
+	d = "test",
+	e = true,
+	f = "true",
+	g = "Yes",
+	h = now(),
 	q = q,
 	t = [ x=1, y=2, z=q ]
 }&gt;
@@ -85,17 +88,17 @@
 </pre>
 
 <cfset q = queryNew("id,title", "integer,varchar", [ {"id"=1,"title"="AAA"}, {"id"=2,"title"="BBB"} ])>
-<cfset data = {
-	a = 1,
-	b = 1.1,
-	c = "test",
-	d = true,
-	e = "Yes",
-	f = "1",
-	g = now(),
-	q = q,
-	t = [ x=1, y=2, z=q ]
-}>
+<cfset data = structNew("ordered")>
+<cfset data["a"] = 1>
+<cfset data["b"] = 1.1>
+<cfset data["c"] = "1">
+<cfset data["d"] = "test">
+<cfset data["e"] = true>
+<cfset data["f"] = "true">
+<cfset data["g"] = "yes">
+<cfset data["h"] = now()>
+<cfset data["q"] = q>
+<cfset data["t"] = [ x=1, y=2, z=q ]>
 <h4>Data</h4>
 <cfdump var="#data#">
 <h4>This JsonEncode function</h4>
