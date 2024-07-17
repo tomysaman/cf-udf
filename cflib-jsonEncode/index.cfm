@@ -68,6 +68,7 @@
 <h2>Examples</h2>
 
 <pre>
+&lt;cfset q = queryNew("id,title", "integer,varchar", [ {"id"=1,"title"="AAA"}, {"id"=2,"title"="BBB"} ])&gt;
 &lt;cfset data = {
 	a = 1,
 	b = 1.1,
@@ -75,13 +76,15 @@
 	d = true,
 	e = "Yes",
 	f = "1",
-	g = [ x=1, y=2, z=3 ],
-	h = now()
+	g = now(),
+	q = q,
+	t = [ x=1, y=2, z=q ]
 }&gt;
 &lt;cfdump var="##data##"&gt;
 &lt;cfdump var="##jsonEncode(data)##"&gt;
 </pre>
 
+<cfset q = queryNew("id,title", "integer,varchar", [ {"id"=1,"title"="AAA"}, {"id"=2,"title"="BBB"} ])>
 <cfset data = {
 	a = 1,
 	b = 1.1,
@@ -89,11 +92,16 @@
 	d = true,
 	e = "Yes",
 	f = "1",
-	g = [ x=1, y=2, z=3 ],
-	h = now()
+	g = now(),
+	q = q,
+	t = [ x=1, y=2, z=q ]
 }>
+<h4>Data</h4>
 <cfdump var="#data#">
+<h4>This JsonEncode function</h4>
 <pre>#jsonEncode(data)#</pre>
+<h4>Build-in SerializeJson function</h4>
+<pre>#SerializeJson(data)#</pre>
 
 </body>
 </html>
