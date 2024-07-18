@@ -6,8 +6,7 @@
 
 <cfinclude template="#UDF#.cfm">
 <cffile action="read" file="#expandPath('./#UDF#.cfm')#" variable="udfContent">
-<cfset udfContent = replace(udfContent, "<", "&lt;", "all")>
-<cfset udfContent = replace(udfContent, ">", "&gt;", "all")>
+<cfset udfContent = htmlEditFormat(udfContent)>
 
 <html>
 <title>#UDF#</title>
