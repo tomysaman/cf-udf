@@ -24,9 +24,10 @@
 
 <p>
 	A custom function to serialize native ColdFusion objects (simple values, arrays, structures, queries) into a JSON format string. <br><br>
-	Compare to the build-in SerializeJson() function, this function can:
+	Compared to the build-in SerializeJson() function, this function can:
 	<ul>
 		<li>Has the option to format the date/time or not to format it</li>
+		<li>Has the option to convert a string number to a numeric, or not to convert it (stay as string)</li>
 	</ul>
 </p>
 
@@ -41,8 +42,8 @@
 		<strong>queryFormat</strong>: string default=query (values:query|array) <br>
 		The format that CF query will be converted to:
 		<ul>
-			<li><strong>query</strong>: </li>
-			<li><strong>array</strong>: </li>
+			<li><em>query</em>: Query will be represent as structure of array (the CF native format). Same as queryFormat="column" for the build-in SerializeJson() function.</li>
+			<li><em>array</em>: Query will be represent as array of structure (a more "statndard" format similar to JS). Same as queryFormat="struct" for the build-in SerializeJson() function.</li>
 		</ul>
 	</li>
 	<li>
@@ -51,7 +52,7 @@
 	</li>
 	<li>
 		<strong>stringNumbers</strong>: boolean default=false <br>
-		
+		Determine if numbers should be represent as string (1 => "1" and "1" => "1") or not (1 => 1 but "1" => 1)
 	</li>
 	<li>
 		<strong>formatDates</strong>: boolean default=false <br>
@@ -102,7 +103,7 @@
 <h4>Data</h4>
 <cfdump var="#data#">
 <h4>This JsonEncode function</h4>
-<pre>#jsonEncode(data)#</pre>
+<pre>#jsonEncode(data=data)#</pre>
 <h4>Build-in SerializeJson function</h4>
 <pre>#SerializeJson(data)#</pre>
 
