@@ -1,11 +1,3 @@
-<!---
-	Serialize native ColdFusion objects into a JSON formated string.
-
-	@param arg      The data to encode. (Required)
-	@return Returns a string. 
-	@author Jehiah Czebotar (jehiah@gmail.com) 
-	@version 2, June 27, 2008 
---->
 <!--- *********** START: Custom SerializeJson function *********** 
 	Serialize native ColdFusion objects into a JSON formated string. Based on the JsonEncode function by Jehiah Czebotar (jehiah@gmail.com) from CFLib.org @ https://cflib.org/udf/jsonencode
 	* Why? - Because of the limitations or qwerts of the build-in CF/Lucee SerializeJson() function
