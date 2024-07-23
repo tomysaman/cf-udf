@@ -80,6 +80,9 @@
 	f = "true",
 	g = "Yes",
 	h = now(),
+	i = "2024/07/01  13:30:00",
+	j = "2024/07/01",
+	k = "13:30:00",
 	q = q,
 	t = [ x=1, y=2, z=q ]
 }&gt;
@@ -97,6 +100,9 @@
 <cfset data["f"] = "true">
 <cfset data["g"] = "yes">
 <cfset data["h"] = now()>
+<cfset data["i"] = "2024/07/01 13:30:00">
+<cfset data["j"] = "2024/07/01">
+<cfset data["k"] = "13:30:00">
 <cfset data["q"] = q>
 <cfset data["t"] = [ x=1, y=2, z=q ]>
 <h4>Data</h4>
