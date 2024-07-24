@@ -84,7 +84,7 @@
 	j = "2024/07/01",
 	k = "13:30:00",
 	q = q,
-	t = [ x=1, y=2, z=q ]
+	t = [ 1, 2, q ]
 }&gt;
 &lt;cfdump var="##data##"&gt;
 &lt;cfdump var="##jsonEncode(data)##"&gt;
@@ -104,7 +104,7 @@
 <cfset data["j"] = "2024/07/01">
 <cfset data["k"] = "13:30:00">
 <cfset data["q"] = q>
-<cfset data["t"] = [ x=1, y=2, z=q ]>
+<cfset data["t"] = [ 1, 2, q ]>
 <h4>Data</h4>
 <cfdump var="#data#">
 <h4>This JsonEncode function</h4>
